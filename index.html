@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANNA BEST BAKES - Home</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body style ="background-color: burlywood;">
+    
+    <!--Navigation-->
+    <header>
+        <!--Logo-->
+        <img src="/assets/bakery-logo-design-vector.jpg" alt="Anna best bakes logo" width="150" height="100">
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="pages/contact.html">Contact us</a>
+            <a href="pages/about.html">About us</a>
+            <a href="pages/products.html">Products</a>
+            <a href="pages/enquiry.html">Enquiry</a>
+        </nav>
+        <!--Add a hamburger navigation  for small devices-->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+    </header>
+    <main>
+        <h1 style="background-color: chocolate; text-align: center;">WELCOME TO ANNA BEST BAKES!</h1>
+        <p style="text-transform: capitalize;">Our expertise and experience gained over the years is evident in the success of our campaigns
+            and our high levels of customer retention. Our team takes a hands-on approach to Google Ads Management and works closely with our clients to make
+            every click count.At Anna Best Bakes, you can expect a delightful fusion of homemade charm and professional quality. Known for her beautifully crafted cakes, cookies, and pastries, 
+            Anna pours creativity and care into every treat. Whether you're ordering for a birthday, wedding, or just a sweet craving, expect bold flavors, elegant designs, 
+            and a personal touch that makes each bake feel special. 
+            From classic vanilla sponge to decadent chocolate ganache, Annas menu offers something for every taste. 
+            Plus, her attention to detail and commitment to freshness ensure that every bite is as memorable as the occasion itself.</p>
+               <section>
+                <img src="assets/OIP.webp" alt="our freshly baked products" width="850" height="550">
+               </section>
+        </main>
+        <footer>
+            </p>
+            <div class="socials">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p style="text-align: center;">&copy;2025 ANNA BEST BAKES</p>
+
+        </footer>
+        <script>
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active'); // animate hamburger
+            });
+        </script>
+    </body>
+</html>
+        
+      
