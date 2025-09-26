@@ -1,83 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANNA BEST BAKES - Contact us</title>
-    <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ANNA BEST BAKES - Contact us</title>
+
+  <!-- Font Awesome CDN for social media icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    /* Basic styles for hamburger and nav */
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+      background-color: #f4e6e6;
+      position: relative;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    /* Hamburger styling */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      border-radius: 2px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #f4e6e6;
+        position: absolute;
+        top: 60px;
+        right: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 1rem;
+        width: 150px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Social icons in footer */
+    .socials a {
+      margin: 0 0.5rem;
+      color: #333;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+
+    .socials a:hover {
+      color: #d2691e;
+    }
+  </style>
 </head>
 <body>
-     <!--Navigation-->
-    <header>
-        <!--Logo-->
-        <img src="/assets/bakery-logo-design-vector.jpg" alt="Anna best bakes logo" width="150" height="100">
-        <nav>
-            <a href="../index.html">Home</a>
-            <a href="contact.html">Contact us</a>
-            <a href="about.html">About us</a>
-            <a href="products.html">Products</a>
-            <a href="enquiry.html">Enquiry</a>
-        </nav>
-    </header> 
-    <main>
-        <h1>Our Details: </h1>
-        <table>
-            <tr>
-                <td width="100">Telephone number: </td>
-                <td>(015)-198-4118</td>
-            </tr>
-            <tr>
-                <td width="100">Address:</td>
-                <td>Wisani Mathonsi street&nbsp; Malamulele,&nbsp;0699</td>
-            </tr>
-            <tr>
-                <td width="100">Email Address:</td>
-                <td><a href="mailto:info@annabestbakes.co.za">"info@annabestbakes.co.za"</a></td>
-            </tr>
-        </table>
-        <section>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.5200626861792!2d30.70730287616169!3d-23.00466957918634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec5ae2a8be543f7%3A0x71e014839d5c0e47!2sWisani%20Mathonsi%2C%20Malamulele-C%2C%20Malamulele%2C%200982%2C%20South%20Africa!5e0!3m2!1sen!2sie!4v1756198923009!5m2!1sen!2sie"
-             width="600"
-              height="450"
-               style="border:0;" 
-               allowfullscreen=""
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </section>
-        <section></section>
-    </main> 
+  <!-- Navigation -->
+  <header>
+    <!-- Logo -->
+    <img
+      src="/assets/bakery-logo-design-vector.jpg"
+      alt="Anna best bakes logo"
+      width="150"
+      height="100"
+    />
+
+    <!-- Hamburger menu -->
+    <div
+      class="hamburger"
+      aria-label="Toggle navigation"
+      role="button"
+      tabindex="0"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Navigation links -->
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="contact.html">Contact us</a>
+      <a href="about.html">About us</a>
+      <a href="products.html">Products</a>
+      <a href="enquiry.html">Enquiry</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Our Details: </h1>
+    <table>
+      <tr>
+        <td width="150">Telephone number:</td>
+        <td>(015)-198-4118</td>
+      </tr>
+      <tr>
+        <td width="150">Address:</td>
+        <td>Wisani Mathonsi street&nbsp; Malamulele,&nbsp;0699</td>
+      </tr>
+      <tr>
+        <td width="150">Email Address:</td>
+        <td>
+          <a href="mailto:info@annabestbakes.co.za">info@annabestbakes.co.za</a>
+        </td>
+      </tr>
+    </table>
+
+    <section>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.5200626861792!2d30.70730287616169!3d-23.00466957918634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec5ae2a8be543f7%3A0x71e014839d5c0e47!2sWisani%20Mathonsi%2C%20Malamulele-C%2C%20Malamulele%2C%200982%2C%20South%20Africa!5e0!3m2!1sen!2sie!4v1756198923009!5m2!1sen!2sie"
+        width="600"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </section>
+
     <h1>Contact Form</h1>
     <form action="" method="post">
-        <table>
-            <tr>
-                <td>Name:</td>
-                <td><input type="text" name="name" placeholder="Enter your name" required></td>
-            </tr>
-            <tr>
-                <td>Email:</td>
-                <td><input type="email" name="email" placeholder="Enter your email" required></td>
-            </tr> 
-            <tr>
-                <td width="100">Message:</td>
-                <td>
-                    <textarea rows="5" cols="25"></textarea>
-                </td>
-            </tr> 
-            <tr>
-                <td width="100"></td>
-                <td><input type="submit" name="button" value="submit"></td>
-            </tr>
-        </table>
+      <table>
+        <tr>
+          <td>Name:</td>
+          <td>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Enter your name"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td width="100">Message:</td>
+          <td>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              cols="25"
+              placeholder="Write your message here"
+              required
+            ></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td width="100"></td>
+          <td>
+            <input type="submit" name="button" value="Submit" />
+          </td>
+        </tr>
+      </table>
     </form>
-    <footer>
-        </p>
-            <div class="socials">
-                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>
-        
-        <p style="text-align: center;">&copy; 2025 ANNA BEST BAKES </p>
-    </footer>
-    </body>
+  </main>
+
+  <footer>
+    <div class="socials" style="text-align: center; margin-bottom: 1rem;">
+      <a
+        href="https://facebook.com"
+        target="_blank"
+        aria-label="Facebook"
+        rel="noopener noreferrer"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+      <a
+        href="https://instagram.com"
+        target="_blank"
+        aria-label="Instagram"
+        rel="noopener noreferrer"
+        ><i class="fab fa-instagram"></i
+      ></a>
+    </div>
+
+    <p style="text-align: center;">&copy; 2025 ANNA BEST BAKES</p>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const nav = document.querySelector("nav");
+
+    hamburger.addEventListener("click", () => {
+      nav.classList.toggle("active");
+      hamburger.classList.toggle("active"); // optional if you want animation
+    });
+
+    // Optional: Allow toggling with keyboard Enter or Space key
+    hamburger.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        hamburger.click();
+      }
+    });
+  </script>
+</body>
 </html>

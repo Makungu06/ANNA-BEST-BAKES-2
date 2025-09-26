@@ -1,64 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANNA BEST BAKES - Home</title>
-    <link rel="stylesheet" href="../css/style.css">
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ANNA BEST BAKES - Home</title>
+
+  <!-- Font Awesome for social icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <style>
+    /* Basic reset and styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: burlywood;
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #f4e6e6;
+      padding: 1rem 2rem;
+      position: relative;
+    }
+
+    header img {
+      width: 150px;
+      height: 100px;
+      object-fit: contain;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      padding: 0.5rem 0;
+      transition: color 0.3s;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #d2691e;
+      outline: none;
+    }
+
+    /* Hamburger styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      width: 25px;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 3px;
+      background-color: #333;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* Toggle hamburger animation */
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Responsive navigation */
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #f4e6e6;
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+        border-radius: 0 0 0 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: none;
+        z-index: 100;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    main h1 {
+      background-color: chocolate;
+      text-align: center;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      color: white;
+      border-radius: 5px;
+    }
+
+    main p {
+      text-transform: capitalize;
+      margin-bottom: 2rem;
+    }
+
+    main section img {
+      display: block;
+      width: 75%;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      background-color: #f4e6e6;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      margin-top: 3rem;
+      border-top: 1px solid #ddd;
+    }
+
+    .socials {
+      margin-bottom: 1rem;
+    }
+
+    .socials a {
+      margin: 0 0.5rem;
+      color: #333;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+
+    .socials a:hover,
+    .socials a:focus {
+      color: #d2691e;
+      outline: none;
+    }
+  </style>
 </head>
-<body style ="background-color: burlywood;">
-    
-    <!--Navigation page-->
-    <header>
-        <!--Logo-->
-        <img src="/assets/bakery-logo-design-vector.jpg" alt="Anna best bakes logo" width="150" height="100">
-        <nav>
-            <a href="../index.html">Home</a>
-            <a href="pages/contact.html">Contact us</a>
-            <a href="pages/about.html">About us</a>
-            <a href="pages/products.html">Products</a>
-            <a href="pages/enquiry.html">Enquiry</a>
-        </nav>
-        <!--Add a hamburger navigation  for small devices-->
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-    </header>
-    <main>
-        <h1 style="background-color: chocolate; text-align: center;">WELCOME TO ANNA BEST BAKES!</h1>
-        <p style="text-transform: capitalize;">Our expertise and experience gained over the years is evident in the success of our campaigns
-            and our high levels of customer retention. Our team takes a hands-on approach to Google Ads Management and works closely with our clients to make
-            every click count.At Anna Best Bakes, you can expect a delightful fusion of homemade charm and professional quality. Known for her beautifully crafted cakes, cookies, and pastries, 
-            Anna pours creativity and care into every treat. Whether you're ordering for a birthday, wedding, or just a sweet craving, expect bold flavors, elegant designs, 
-            and a personal touch that makes each bake feel special. 
-            From classic vanilla sponge to decadent chocolate ganache, Annas menu offers something for every taste. 
-            Plus, her attention to detail and commitment to freshness ensure that every bite is as memorable as the occasion itself.</p>
-               <section>
-                <img src="assets/OIP.webp" alt="our freshly baked products" width="75%" height="75%">
-               </section>
-        </main>
-        <footer>
-            </p>
-            <div class="socials">
-                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>
-            <p style="text-align: center;">&copy;2025 ANNA BEST BAKES</p>
+<body>
+  <!-- Navigation page -->
+  <header>
+    <!-- Logo -->
+    <img
+      src="/assets/bakery-logo-design-vector.jpg"
+      alt="Anna best bakes logo"
+      width="150"
+      height="100"
+    />
 
-        </footer>
-        <script>
-            const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
+    <!-- Navigation links -->
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="pages/contact.html">Contact us</a>
+      <a href="pages/about.html">About us</a>
+      <a href="pages/products.html">Products</a>
+      <a href="pages/enquiry.html">Enquiry</a>
+    </nav>
 
-            hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active'); // animate hamburger
-            });
-        </script>
-    </body>
+    <!-- Hamburger icon -->
+    <div
+      class="hamburger"
+      aria-label="Toggle navigation"
+      role="button"
+      tabindex="0"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <main>
+    <h1>WELCOME TO ANNA BEST BAKES!</h1>
+    <p>
+      Our expertise and experience gained over the years is evident in the
+      success of our campaigns and our high levels of customer retention. Our
+      team takes a hands-on approach to Google Ads Management and works closely
+      with our clients to make every click count. At Anna Best Bakes, you can
+      expect a delightful fusion of homemade charm and professional quality.
+      Known for her beautifully crafted cakes, cookies, and pastries, Anna
+      pours creativity and care into every treat. Whether you're ordering for a
+      birthday, wedding, or just a sweet craving, expect bold flavors, elegant
+      designs, and a personal touch that makes each bake feel special. From
+      classic vanilla sponge to decadent chocolate ganache, Annas menu offers
+      something for every taste. Plus, her attention to detail and commitment
+      to freshness ensure that every bite is as memorable as the occasion
+      itself.
+    </p>
+    <section>
+      <img
+        src="assets/OIP.webp"
+        alt="Our freshly baked products"
+        width="75%"
+        height="75%"
+      />
+    </section>
+  </main>
+
+  <footer>
+    <div class="socials">
+      <a
+        href="https://facebook.com"
+        target="_blank"
+        aria-label="Facebook"
+        rel="noopener noreferrer"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+      <a
+        href="https://instagram.com"
+        target="_blank"
+        aria-label="Instagram"
+        rel="noopener noreferrer"
+        ><i class="fab fa-instagram"></i
+      ></a>
+    </div>
+    <p>&copy; 2025 ANNA BEST BAKES</p>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('nav.nav-links');
+
+    function toggleMenu() {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+
+    // Keyboard accessibility (Enter and Space keys)
+    hamburger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleMenu();
+      }
+    });
+  </script>
+</body>
 </html>
-        
-      

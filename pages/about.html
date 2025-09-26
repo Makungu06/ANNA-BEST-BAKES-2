@@ -1,84 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANNA BEST BAKES - About us</title>
-    <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ANNA BEST BAKES - About us</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #fff8f0;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #f4e6e6;
+      padding: 10px 20px;
+      position: relative;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header img {
+      max-height: 80px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #4b2e2e;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: chocolate;
+    }
+
+    /* Hamburger styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 25px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 3px;
+      background-color: #4b2e2e;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Animate hamburger when active */
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Responsive Nav */
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #f4e6e6;
+        flex-direction: column;
+        width: 200px;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        display: none;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: chocolate;
+    }
+
+    p {
+      line-height: 1.6;
+      text-transform: capitalize;
+      max-width: 800px;
+      margin: 1rem auto 2rem auto;
+    }
+
+    .staff-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .staff-member {
+      width: 180px;
+      text-align: center;
+    }
+
+    .staff-member img.staff-img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background-color: #f4e6e6;
+      padding: 20px;
+      text-align: center;
+      color: #4b2e2e;
+      font-weight: 600;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .socials {
+      margin-bottom: 10px;
+    }
+
+    .socials a {
+      margin: 0 8px;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      fill: #4b2e2e;
+      transition: fill 0.3s ease;
+    }
+
+    .socials a:hover {
+      fill: chocolate;
+    }
+  </style>
 </head>
 <body>
-    <!--Navigation-->
-    <header>
-        <!--Logo-->
-        <img src="/assets/bakery-logo-design-vector.jpg" alt="Anna best bakes logo" width="150" height="100">
-        <nav>
-            <a href="../index.html">Home</a>
-            <a href="contact.html">Contact us</a>
-            <a href="about.html">About us</a>
-            <a href="products.html">Products</a>
-            <a href="enquiry.html">Enquiry</a>
-        </nav>
-    </header>
-            <!--About section-->
-    <main> 
-        <h1>ABOUT US:</h1>
-        <h2 style="color: chocolate; text-align: center;">WELCOME TO ANNA BEST BAKES!</h2>
-        <p style="text-transform: capitalize;">"At Anna Best Bakes, you can expect cakes, cookies, and fat cakes that are a true delight to the senses. 
-            Each bite offers a perfect balance of sweetness and richness, thanks to the use of fresh, high-quality ingredients that form the foundation of their baked goods. 
-            The texture is consistently light, moist, and fluffy, creating a soft crumb structure that is both tender and satisfying.
-             Combined with an appealing appearance and a thoughtfully crafted flavor profile, the treats from Anna Best Bakes provide a wonderfully delicious experience for any dessert lover".
-    
-             "At Anna Best Bakes, we're passionate about baking the most delicious treats that bring joy to our customers. Our expert bakers work tirelessly to create a wide variety of mouth-watering cakes, 
-             including classic vanilla and chocolate cakes, decadent red velvet cakes, and elegant wedding cakes. We also bake an assortment of sweet cookies, 
-             such as crunchy chocolate chip cookies, chewy oatmeal raisin cookies, and delicate sugar cookies, perfect for dunking in a cold glass of milk. But that's not all - our bakery case is also filled with an array of freshly prepared pastries, including flaky croissants, buttery scones, and sweet Danish pastries. 
-             Every item on our menu is made fresh daily, using only the highest-quality ingredients and time-honored baking techniques. From the moment you walk through our doors, you'll be greeted by the warm aroma of freshly baked goods, tempting you to try a little bit of everything. Whether you're looking for a special treat to brighten up your day or a delicious dessert to serve at your next gathering, 
-             Anna Best Bakes has something for everyone. 
-             Come visit us today and indulge in the sweet taste of freshly baked perfection!"
-    </main>
+  <!-- Navigation -->
+  <header>
+    <img src="/assets/bakery-logo-design-vector.jpg" alt="Anna best bakes logo" />
+
+    <div class="hamburger" aria-label="Toggle navigation" role="button" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="contact.html">Contact us</a>
+      <a href="about.html">About us</a>
+      <a href="products.html">Products</a>
+      <a href="enquiry.html">Enquiry</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>ABOUT US:</h1>
+    <h2>WELCOME TO ANNA BEST BAKES!</h2>
+
+    <p>
+      At Anna Best Bakes, you can expect cakes, cookies, and fat cakes that are a true delight to the senses. Each bite offers a perfect balance of sweetness and richness, thanks to the use of fresh, high-quality ingredients that form the foundation of their baked goods. The texture is consistently light, moist, and fluffy, creating a soft crumb structure that is both tender and satisfying. Combined with an appealing appearance and a thoughtfully crafted flavor profile, the treats from Anna Best Bakes provide a wonderfully delicious experience for any dessert lover.
     </p>
-            <h2>Meet the Team</h2>
-            <div class="staff-container">
-                <div class="staff-member">
-                    <img src="../assets/Member1.jpg" alt="Maluleke" class="staff-img">
-                    <p>Chauke RA & Maluleke M <br>Founders of ANNA BEST BAKES</p>
-                </div>
+    <p>
+      At Anna Best Bakes, we're passionate about baking the most delicious treats that bring joy to our customers. Our expert bakers work tirelessly to create a wide variety of mouth-watering cakes, including classic vanilla and chocolate cakes, decadent red velvet cakes, and elegant wedding cakes. We also bake an assortment of sweet cookies, such as crunchy chocolate chip cookies, chewy oatmeal raisin cookies, and delicate sugar cookies, perfect for dunking in a cold glass of milk. But that's not all - our bakery case is also filled with an array of freshly prepared pastries, including flaky croissants, buttery scones, and sweet Danish pastries. Every item on our menu is made fresh daily, using only the highest-quality ingredients and time-honored baking techniques. From the moment you walk through our doors, you'll be greeted by the warm aroma of freshly baked goods, tempting you to try a little bit of everything. Whether you're looking for a special treat to brighten up your day or a delicious dessert to serve at your next gathering, Anna Best Bakes has something for everyone. Come visit us today and indulge in the sweet taste of freshly baked perfection!
+    </p>
 
-                <div class="staff-member">
-                    <img src="../Assets/Member2.jpg" alt="Maluleke" class="staff-img">
-                    <p>Ngobeni H<br>Bakery Manager</p>
-                </div>
+    <h2>Meet the Team</h2>
+    <div class="staff-container">
+      <div class="staff-member">
+        <img src="../assets/Member1.jpg" alt="Chauke RA & Maluleke M" class="staff-img" />
+        <p>Chauke RA & Maluleke M<br />Founders of ANNA BEST BAKES</p>
+      </div>
+      <div class="staff-member">
+        <img src="../Assets/Member2.jpg" alt="Ngobeni H" class="staff-img" />
+        <p>Ngobeni H<br />Bakery Manager</p>
+      </div>
+      <div class="staff-member">
+        <img src="../Assets/Member3.jpg" alt="Shilubane SH" class="staff-img" />
+        <p>Shilubane SH<br />Cake Decorator</p>
+      </div>
+      <div class="staff-member">
+        <img src="../Assets/Mmber4.jpg" alt="Maluleke KE" class="staff-img" />
+        <p>Maluleke KE<br />Pastry Chef</p>
+      </div>
+    </div>
+  </main>
 
-                <div class="staff-member">
-                    <img src="../Assets/Member3.jpg" alt="Maluleke" class="staff-img">
-                    <p>Shilubane SH<br>Cake Decorator</p>
-                </div>
+  <footer>
+    <div class="socials">
+      <!-- Facebook SVG icon -->
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook" rel="noopener noreferrer" title="Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.325v21.351C0 23.4.6 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.466.099 2.798.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.4 24 24 23.4 24 22.675V1.325C24 .6 23.4 0 22.675 0z"/>
+        </svg>
+      </a>
 
-                <div class="staff-member">
-                    <img src="../Assets/Mmber4.jpg" alt="Maluleke" class="staff-img">
-                    <p>Maluleke KE<br>Pastry Chef</p>
-                </div> 
-            </div>
-    
-           
-            
-           
-    <footer>
-        </p>
-            <div class="socials">
-                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>
-        <p style="text-align: center;">&copy; 2025 ANNA BEST BAKES</p>
-    </footer>
-     <script>
-            const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
+      <!-- Instagram SVG icon -->
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram" rel="noopener noreferrer" title="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5c0 3.3-2.45 5.75-5.75 5.75h-8.5C4.45 22 2 19.55 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 2C5.68 4 4 5.68 4 7.75v8.5c0 2.07 1.68 3.75 3.75 3.75h8.5c2.07 0 3.75-1.68 3.75-3.75v-8.5c0-2.07-1.68-3.75-3.75-3.75h-8.5zm8.75 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm-4.25 1a5.5 5.5 0 110 11 5.5 5.5 0 010-11zm0 2a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/>
+        </svg>
+      </a>
+    </div>
+    &copy; 2025 Anna Best Bakes. All rights reserved.
+  </footer>
 
-            hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active'); // animate hamburger
-            });
-    </script>
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('nav.nav-links');
 
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Optional: allow toggle by keyboard (Enter or Space)
+    hamburger.addEventListener('keydown', (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        hamburger.click();
+      }
+    });
+  </script>
 </body>
 </html>

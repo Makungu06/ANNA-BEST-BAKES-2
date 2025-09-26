@@ -1,79 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANNA BEST BAKES - Enquiry</title>
-    <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ANNA BEST BAKES - Enquiry</title>
+
+  <!-- Font Awesome for social icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <style>
+    /* Basic styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0 1rem;
+      background-color: #fff5f0;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #f4e6e6;
+      padding: 1rem 2rem;
+      position: relative;
+    }
+
+    header img {
+      width: 150px;
+      height: 100px;
+      object-fit: contain;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      padding: 0.5rem 0;
+      transition: color 0.3s;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #d2691e;
+      outline: none;
+    }
+
+    /* Hamburger styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      width: 25px;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 3px;
+      background-color: #333;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* Hamburger toggle animation */
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Responsive nav */
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #f4e6e6;
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+        border-radius: 0 0 0 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: none;
+        z-index: 100;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+    }
+
+    h1, h2, h3 {
+      color: #d2691e;
+    }
+
+    form {
+      margin-top: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #d2691e;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover,
+    button:focus {
+      background-color: #a0522d;
+      outline: none;
+    }
+
+    footer {
+      background-color: #f4e6e6;
+      padding: 1rem 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .socials {
+      margin-bottom: 0.5rem;
+    }
+
+    .socials a {
+      margin: 0 0.5rem;
+      color: #333;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+
+    .socials a:hover,
+    .socials a:focus {
+      color: #d2691e;
+      outline: none;
+    }
+  </style>
 </head>
 <body>
-    <!--Navigation-->
-    <header>
-        <!--Logo-->
-        <img src="/assets/bakery-logo-design-vector.jpg" alt="Anna best bakes logo" width="150" height="100">
-        <nav>
-            
-            <a href="../index.html">Home</a>
-            <a href="contact.html">Contact us</a>
-            <a href="about.html">About us</a>
-            <a href="products.html">Products</a>
-            <a href="enquiry.html">Enquiry</a>
-            
-        </nav>
-    </header>
-    <main>
-        <section id="home">
-            <h1>Welcome to Anna's Best Bakes!</h1>
-            <p>Indulge in the sweetest treats, baked with love.</p>
-            
-        </section>
-        <section id="about">
-            <h2>About Anna</h2>
-            <p>Anna is a passionate baker with a love for creating delicious treats.</p>
-        </section>
-        <section id="recipes">
-            <h2>Recipes</h2>
-            <ul>
-                <li>
-                    <h3>Recipe 1: Chocolate Cake</h3>
-                    <p>A rich, moist chocolate cake perfect for any occasion.</p>
-                </li>
-                <li>
-                    <h3>Recipe 2: Lemon Bars</h3>
-                    <p>Tangy and sweet, these lemon bars are a crowd-pleaser.</p>
-                </li>
-            </ul>
-        </section>
-        <section id="contact">
-            <h2>Get in Touch</h2>
-            <p>Contact Anna to order custom cakes or ask about upcoming baking classes.</p>
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name"><br><br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email"><br><br>
-                <label for="message">Message:</label>
-                <textarea id></textarea>
-            </section>
+  <!-- Navigation -->
+  <header>
+    <img
+      src="/assets/bakery-logo-design-vector.jpg"
+      alt="Anna best bakes logo"
+      width="150"
+      height="100"
+    />
 
-            <!-- Footer -->
-            <footer>
-                <p style="text-align: center;">&copy; 2025 ANNA BEST BAKES</p>
-            </footer>
-             <script>
-            const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="contact.html">Contact us</a>
+      <a href="about.html">About us</a>
+      <a href="products.html">Products</a>
+      <a href="enquiry.html">Enquiry</a>
+    </nav>
 
-            hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active'); // animate hamburger
-            });
-    </script>
+    <div
+      class="hamburger"
+      aria-label="Toggle navigation"
+      role="button"
+      tabindex="0"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
 
-        </body>
-        </html>
+  <main>
+    <section id="home">
+      <h1>Welcome to Anna's Best Bakes!</h1>
+      <p>Indulge in the sweetest treats, baked with love.</p>
+    </section>
 
+    <section id="about">
+      <h2>About Anna</h2>
+      <p>Anna is a passionate baker with a love for creating delicious treats.</p>
+    </section>
 
+    <section id="recipes">
+      <h2>Recipes</h2>
+      <ul>
+        <li>
+          <h3>Recipe 1: Chocolate Cake</h3>
+          <p>A rich, moist chocolate cake perfect for any occasion.</p>
+        </li>
+        <li>
+          <h3>Recipe 2: Lemon Bars</h3>
+          <p>Tangy and sweet, these lemon bars are a crowd-pleaser.</p>
+        </li>
+      </ul>
+    </section>
 
-            
+    <section id="contact">
+      <h2>Get in Touch</h2>
+      <p>
+        Contact Anna to order custom cakes or ask about upcoming baking classes.
+      </p>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
 
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="socials">
+      <a
+        href="https://facebook.com"
+        target="_blank"
+        aria-label="Facebook"
+        rel="noopener noreferrer"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+      <a
+        href="https://instagram.com"
+        target="_blank"
+        aria-label="Instagram"
+        rel="noopener noreferrer"
+        ><i class="fab fa-instagram"></i
+      ></a>
+    </div>
+    <p>&copy; 2025 ANNA BEST BAKES</p>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('nav.nav-links');
+
+    function toggleMenu() {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+
+    // Keyboard accessibility: toggle on Enter or Space key
+    hamburger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleMenu();
+      }
+    });
+  </script>
+</body>
+</html>
