@@ -8,9 +8,6 @@
     
     <!-- Font Awesome for social media icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <link rel="stylesheet" href="../css/style.css">
-    </style>
 </head>
 <body>
 
@@ -42,7 +39,7 @@
         <div class="product-grid">
             <!-- Product 1 -->
             <div class="product-card">
-                <img src="/assets/download.jpg" alt="Chocolate cake" width="9.375rem" height="6.25rem">
+                <img src="/assets/ChocolateCake.jpg" alt="Chocolate cake" class="product-img">
                 <h2>Chocolate Cake</h2>
                 <p>Moist chocolate cake made with dark chocolate and topped with whipped cream.</p>
                 <p>Price: R25.00</p>
@@ -50,7 +47,7 @@
 
             <!-- Product 2 -->
             <div class="product-card">
-                <img src="/assets/download (1).jpg" alt="Apple pie" width="9.375rem" height="6.25rem">
+                <img src="/assets/ApplePie.jpg" alt="Apple pie" class="product-img">
                 <h2>Apple Pie</h2>
                 <p>Classic apple pie filled with tender apples and a hint of cinnamon.</p>
                 <p>Price: R89.99</p>
@@ -58,7 +55,7 @@
 
             <!-- Product 3 -->
             <div class="product-card">
-                <img src="/assets/download (2).jpg" alt="Lemon Bars" width="9.375rem" height="6.25rem">
+                <img src="/assets/lemonbars.jpg" alt="Lemon Bars" class="product-img">
                 <h2>Lemon Bars</h2>
                 <p>Tangy and sweet lemon bars with a shortbread crust.</p>
                 <p>Price: R93.99</p>
@@ -66,7 +63,7 @@
         </div>
     </section>
 
-    <!-- Footer with social icons -->
+    <!-- Footer with social icons and dynamic date/time -->
     <footer>
         <div class="socials">
             <a href="https://facebook.com" target="_blank" aria-label="Facebook">
@@ -76,7 +73,7 @@
                 <i class="fab fa-instagram"></i>
             </a>
         </div>
-        <p>&copy; 2025 ANNA BEST BAKES</p>
+        <p id="footerText">&copy; 2025 ANNA BEST BAKES</p>
     </footer>
 
     <!-- Hamburger toggle script -->
@@ -88,6 +85,19 @@
             navLinks.classList.toggle('active');
             hamburger.classList.toggle('active');
         });
+
+        // JavaScript for dynamic date and time
+        function updateFooter() {
+            const now = new Date();
+            const date = now.toLocaleDateString();
+            const time = now.toLocaleTimeString();
+            const footerText = `© 2025 Anna Best Bakes | ${date} ${time}`;
+            document.getElementById('footerText').textContent = footerText;
+        }
+
+        // Update footer immediately and every second
+        updateFooter();
+        setInterval(updateFooter, 1000);
     </script>
 
 </body>

@@ -7,7 +7,6 @@
 
   <!-- Font Awesome for social icons -->
   <link rel="stylesheet" href="./css/style.css">
-
 </head>
 <body>
   <!-- Navigation page -->
@@ -87,6 +86,8 @@
       ></a>
     </div>
     <p>&copy; 2025 ANNA BEST BAKES</p>
+    <!-- Automatic Date and Time -->
+    <p id="datetime-footer" class="footer-datetime"></p>
   </footer>
 
   <script>
@@ -100,13 +101,26 @@
 
     hamburger.addEventListener('click', toggleMenu);
 
-    // Keyboard accessibility (Enter and Space keys)
+    // Keyboard accessibility
     hamburger.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         toggleMenu();
       }
     });
+
+    // Automatic Date and Time in Footer
+    function updateFooterDateTime() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const dateString = now.toLocaleDateString(undefined, options);
+      const timeString = now.toLocaleTimeString();
+      document.getElementById('datetime-footer').textContent = `${dateString} | ${timeString}`;
+    }
+
+    // Update every second
+    setInterval(updateFooterDateTime, 1000);
+    updateFooterDateTime(); // initial call
   </script>
 </body>
 </html>

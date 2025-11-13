@@ -74,10 +74,15 @@
         </svg>
       </a>
     </div>
-    &copy; 2025 Anna Best Bakes. All rights reserved.
+
+    <p>&copy; 2025 Anna Best Bakes. All rights reserved.</p>
+    
+    <!-- Date & Time Display -->
+    <p id="datetime" style="text-align:center; margin-top:5px; font-weight:bold;"></p>
   </footer>
 
   <script>
+    // === Hamburger Menu ===
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('nav.nav-links');
 
@@ -86,13 +91,26 @@
       navLinks.classList.toggle('active');
     });
 
-    // Optional: allow toggle by keyboard (Enter or Space)
+    // Keyboard toggle
     hamburger.addEventListener('keydown', (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
         hamburger.click();
       }
     });
+
+    // === Automatic Date and Time ===
+    function updateDateTime() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const date = now.toLocaleDateString(undefined, options);
+      const time = now.toLocaleTimeString();
+      document.getElementById('datetime').textContent = `📅 ${date} ⏰ ${time}`;
+    }
+
+    // Update immediately and then every second
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
   </script>
 </body>
 </html>
