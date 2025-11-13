@@ -11,6 +11,8 @@ v1.1.0 –  Update (2025-09-26)
     Added css for decoration, layout, and typography
     Added context on the Home page about the bakery, responding to the proposal feedback 
     Changed image font on Home page to %  
-    Added social icons       
+    Added social icons      
+
+    Pictures updated 
 
     
