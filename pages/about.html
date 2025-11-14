@@ -105,7 +105,7 @@
     updateDateTime();
     setInterval(updateDateTime, 1000);
 
-    // === Accordion functionality for h2 (collapsed by default) ===
+    // === Accordion functionality ===
     document.addEventListener('DOMContentLoaded', () => {
       const headings = document.querySelectorAll('main h2');
 
@@ -126,6 +126,42 @@
         heading.addEventListener('click', () => {
           contentDiv.style.display = contentDiv.style.display === 'none' ? 'block' : 'none';
         });
+      });
+    });
+
+    // === Lightbox functionality ===
+    document.addEventListener('DOMContentLoaded', () => {
+      const lightboxOverlay = document.createElement('div');
+      lightboxOverlay.style.position = 'fixed';
+      lightboxOverlay.style.top = '0';
+      lightboxOverlay.style.left = '0';
+      lightboxOverlay.style.width = '100%';
+      lightboxOverlay.style.height = '100%';
+      lightboxOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+      lightboxOverlay.style.display = 'none';
+      lightboxOverlay.style.justifyContent = 'center';
+      lightboxOverlay.style.alignItems = 'center';
+      lightboxOverlay.style.zIndex = '1000';
+      document.body.appendChild(lightboxOverlay);
+
+      // Create the lightbox image
+      const lightboxImage = document.createElement('img');
+      lightboxImage.style.maxWidth = '90%';
+      lightboxImage.style.maxHeight = '90%';
+      lightboxOverlay.appendChild(lightboxImage);
+
+      // Add event listeners to images for opening lightbox
+      const images = document.querySelectorAll('.staff-img');
+      images.forEach(image => {
+        image.addEventListener('click', () => {
+          lightboxImage.src = image.src;
+          lightboxOverlay.style.display = 'flex';
+        });
+      });
+
+      // Add click event on overlay to close lightbox
+      lightboxOverlay.addEventListener('click', () => {
+        lightboxOverlay.style.display = 'none';
       });
     });
   </script>

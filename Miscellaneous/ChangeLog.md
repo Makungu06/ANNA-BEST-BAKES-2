@@ -20,3 +20,4 @@ v1.1.0 –  Update (2025-09-26)
     Added a enquiry form on enquiry page
     Added logo to be visible on all pages
     Changed logo
+    Added lightbox on about page
