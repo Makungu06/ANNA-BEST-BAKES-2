@@ -6,6 +6,7 @@
   <title>ANNA BEST BAKES - Home</title>
 
   <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -13,7 +14,7 @@
   <header>
     <!-- Logo -->
     <img
-      src="/assets/bakery-logo-design-vector.jpg"
+      src="/ANNA-BEST-BAKES/assets/Annabakeslogo.jpg"
       alt="Anna best bakes logo"
       width="150"
       height="100"
@@ -43,7 +44,8 @@
 
   <main>
     <h1>WELCOME TO ANNA BEST BAKES!</h1>
-    <p>
+
+    <p class="accordion-content">
       Our expertise and experience gained over the years is evident in the
       success of our campaigns and our high levels of customer retention. Our
       team takes a hands-on approach to Google Ads Management and works closely
@@ -53,17 +55,19 @@
       pours creativity and care into every treat. Whether you're ordering for a
       birthday, wedding, or just a sweet craving, expect bold flavors, elegant
       designs, and a personal touch that makes each bake feel special. From
-      classic vanilla sponge to decadent chocolate ganache, Annas menu offers
+      classic vanilla sponge to decadent chocolate ganache, Anna’s menu offers
       something for every taste. Plus, her attention to detail and commitment
       to freshness ensure that every bite is as memorable as the occasion
       itself.
     </p>
+
     <section>
       <img
         src="assets/OIP.webp"
         alt="Our freshly baked products"
         width="75%"
         height="75%"
+        id="product-image"
       />
     </section>
   </main>
@@ -118,9 +122,52 @@
       document.getElementById('datetime-footer').textContent = `${dateString} | ${timeString}`;
     }
 
-    // Update every second
     setInterval(updateFooterDateTime, 1000);
-    updateFooterDateTime(); // initial call
+    updateFooterDateTime();
+
+    // === JavaScript Accordion ===
+    document.addEventListener('DOMContentLoaded', () => {
+      const paragraphs = document.querySelectorAll('.accordion-content');
+
+      paragraphs.forEach(p => {
+        // Start collapsed
+        p.style.display = 'none';
+        
+        // Make previous heading clickable if exists
+        const heading = p.previousElementSibling;
+        if (heading && (heading.tagName === 'H1' || heading.tagName === 'H2')) {
+          heading.style.cursor = 'pointer';
+          heading.addEventListener('click', () => {
+            p.style.display = p.style.display === 'none' ? 'block' : 'none';
+          });
+        }
+      });
+    });
+
+    // === Simple Lightbox for Product Image ===
+    const productImage = document.getElementById('product-image');
+    productImage.addEventListener('click', () => {
+      const overlay = document.createElement('div');
+      overlay.style.position = 'fixed';
+      overlay.style.top = 0;
+      overlay.style.left = 0;
+      overlay.style.width = '100%';
+      overlay.style.height = '100%';
+      overlay.style.backgroundColor = 'rgba(0,0,0,0.8)';
+      overlay.style.display = 'flex';
+      overlay.style.alignItems = 'center';
+      overlay.style.justifyContent = 'center';
+      overlay.style.zIndex = 1000;
+      overlay.addEventListener('click', () => document.body.removeChild(overlay));
+
+      const img = document.createElement('img');
+      img.src = productImage.src;
+      img.style.maxWidth = '90%';
+      img.style.maxHeight = '90%';
+      overlay.appendChild(img);
+
+      document.body.appendChild(overlay);
+    });
   </script>
 </body>
 </html>
