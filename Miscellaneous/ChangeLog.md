@@ -13,6 +13,10 @@ v1.1.0 –  Update (2025-09-26)
     Changed image font on Home page to %  
     Added social icons      
 
-    Pictures updated 
-
-    
+    Part 3 - Update(2025-11-14)
+    Added automatic date and time to about,products,contact,home and enquiry pages
+    Added lightbox and accordions on home page
+    Added accordions on about page
+    Added a enquiry form on enquiry page
+    Added logo to be visible on all pages
+    Changed logo
