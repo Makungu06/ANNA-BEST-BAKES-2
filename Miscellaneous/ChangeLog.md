@@ -21,3 +21,7 @@ v1.1.0 –  Update (2025-09-26)
     Added logo to be visible on all pages
     Changed logo
     Added lightbox on about page
+
+    Update(2025-11-15)
+    Added animation on about us page
+    Added slide down toggles on about us
