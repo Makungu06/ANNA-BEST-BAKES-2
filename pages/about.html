@@ -91,9 +91,9 @@
   </footer>
 
   <script>
-    /* ============================================================
-       HAMBURGER MENU
-    ============================================================ */
+    
+       //HAMBURGER MENU
+    
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('nav.nav-links');
 
@@ -109,9 +109,9 @@
       }
     });
 
-    /* ============================================================
-       DATE & TIME
-    ============================================================ */
+    
+       //DATE & TIME
+    
     function updateDateTime() {
       const now = new Date();
       const date = now.toLocaleDateString(undefined, {
@@ -126,9 +126,9 @@
     updateDateTime();
     setInterval(updateDateTime, 1000);
 
-    /* ============================================================
-       1. PAGE FADE-IN ANIMATION
-    ============================================================ */
+    
+        //PAGE FADE-IN ANIMATION
+    
     document.addEventListener("DOMContentLoaded", () => {
       const fadeItems = document.querySelectorAll("h1, h2, p, .staff-member");
 
@@ -144,9 +144,9 @@
       });
     });
 
-    /* ============================================================
-       2. SLIDE-DOWN SECTION TOGGLES
-    ============================================================ */
+   
+        //SLIDE-DOWN SECTION TOGGLES
+    
     document.addEventListener("DOMContentLoaded", () => {
       const headers = document.querySelectorAll("main h2");
 
@@ -169,9 +169,7 @@
       });
     });
 
-    /* ============================================================
-       3. IMAGE ZOOM ON HOVER (JS ONLY)
-    ============================================================ */
+    //Image zoom
     document.addEventListener("DOMContentLoaded", () => {
       const staffImages = document.querySelectorAll('.staff-img');
 
@@ -188,9 +186,7 @@
       });
     });
 
-    /* ============================================================
-       4. LIGHTBOX
-    ============================================================ */
+   //lightbox 
     document.addEventListener("DOMContentLoaded", () => {
       const overlay = document.createElement('div');
       overlay.style.position = 'fixed';
