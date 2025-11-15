@@ -25,3 +25,4 @@ v1.1.0 –  Update (2025-09-26)
     Update(2025-11-15)
     Added animation on about us page
     Added slide down toggles on about us
+    Added gallerylightbox on the products page

@@ -13,7 +13,6 @@
 
     <!-- Header with logo and navigation -->
     <header>
-        
         <img src="/ANNA-BEST-BAKES/assets/Anna logo 2.jpg" alt="Anna best bakes logo" width="150" />
 
         <!-- Hamburger and Navigation -->
@@ -38,9 +37,12 @@
     <section id="products">
         <h1>Our Products</h1>
         <div class="product-grid">
+
             <!-- Product 1 -->
             <div class="product-card">
-                <img src="/ANNA-BEST-BAKES/assets/Chocolate cake 2.jpg" alt="Chocolate cake" class="product-img">
+                <img src="/ANNA-BEST-BAKES/assets/Chocolate cake 2.jpg" 
+                     alt="Chocolate cake"
+                     class="product-img lightbox-item">
                 <h2>Chocolate Cake</h2>
                 <p>Moist chocolate cake made with dark chocolate and topped with whipped cream.</p>
                 <p>Price: R25.00</p>
@@ -48,7 +50,9 @@
 
             <!-- Product 2 -->
             <div class="product-card">
-                <img src="/ANNA-BEST-BAKES/assets/ApplePie.jpg" alt="Apple pie" class="product-img">
+                <img src="/ANNA-BEST-BAKES/assets/ApplePie.jpg" 
+                     alt="Apple pie"
+                     class="product-img lightbox-item">
                 <h2>Apple Pie</h2>
                 <p>Classic apple pie filled with tender apples and a hint of cinnamon.</p>
                 <p>Price: R89.99</p>
@@ -56,15 +60,18 @@
 
             <!-- Product 3 -->
             <div class="product-card">
-                <img src="/ANNA-BEST-BAKES/assets/lemonbars.jpg" alt="Lemon Bars" class="product-img">
+                <img src="/ANNA-BEST-BAKES/assets/lemonbars.jpg" 
+                     alt="Lemon Bars"
+                     class="product-img lightbox-item">
                 <h2>Lemon Bars</h2>
                 <p>Tangy and sweet lemon bars with a shortbread crust.</p>
                 <p>Price: R93.99</p>
             </div>
+
         </div>
     </section>
 
-    <!-- Footer with social icons and dynamic date/time -->
+    <!-- Footer -->
     <footer>
         <div class="socials">
             <a href="https://facebook.com" target="_blank" aria-label="Facebook">
@@ -77,8 +84,9 @@
         <p id="footerText">&copy; 2025 ANNA BEST BAKES</p>
     </footer>
 
-    <!-- Hamburger toggle script -->
+    <!-- JavaScript -->
     <script>
+        /* ----------------- HAMBURGER MENU ----------------- */
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
 
@@ -87,18 +95,89 @@
             hamburger.classList.toggle('active');
         });
 
-        // JavaScript for dynamic date and time
+        /* ----------------- FOOTER DATE & TIME ----------------- */
         function updateFooter() {
             const now = new Date();
             const date = now.toLocaleDateString();
             const time = now.toLocaleTimeString();
-            const footerText = `© 2025 Anna Best Bakes | ${date} ${time}`;
-            document.getElementById('footerText').textContent = footerText;
+            document.getElementById('footerText').textContent =
+                `© 2025 Anna Best Bakes | ${date} ${time}`;
         }
 
-        // Update footer immediately and every second
         updateFooter();
         setInterval(updateFooter, 1000);
+
+        /* ----------------- LIGHTBOX SCRIPT ----------------- */
+        // Create lightbox elements dynamically
+        const lightbox = document.createElement("div");
+        const lightboxImage = document.createElement("img");
+        const closeButton = document.createElement("span");
+
+        // Set content
+        closeButton.textContent = "×";
+
+        // Append
+        lightbox.appendChild(closeButton);
+        lightbox.appendChild(lightboxImage);
+        document.body.appendChild(lightbox);
+
+        // Style dynamically with JS
+        Object.assign(lightbox.style, {
+            display: "none",
+            position: "fixed",
+            zIndex: "9999",
+            paddingTop: "80px",
+            left: "0",
+            top: "0",
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0,0,0,0.9)",
+            overflow: "auto",
+        });
+
+        Object.assign(lightboxImage.style, {
+            display: "block",
+            margin: "auto",
+            maxWidth: "90%",
+            maxHeight: "80vh",
+            borderRadius: "8px"
+        });
+
+        Object.assign(closeButton.style, {
+            position: "absolute",
+            top: "20px",
+            right: "35px",
+            color: "#fff",
+            fontSize: "40px",
+            fontWeight: "bold",
+            cursor: "pointer"
+        });
+
+        // Open lightbox when image clicked
+        const items = document.querySelectorAll(".lightbox-item");
+        items.forEach(item => {
+            item.addEventListener("click", () => {
+                lightbox.style.display = "block";
+                lightboxImage.src = item.src;
+            });
+        });
+
+        // Close lightbox
+        closeButton.addEventListener("click", () => {
+            lightbox.style.display = "none";
+        });
+
+        lightbox.addEventListener("click", (event) => {
+            if (event.target === lightbox) {
+                lightbox.style.display = "none";
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                lightbox.style.display = "none";
+            }
+        });
     </script>
 
 </body>
