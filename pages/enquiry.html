@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ANNA BEST BAKES - Enquiry</title>
   
+  
   <link rel="stylesheet" href="../css/style.css">
   
   <!-- Font Awesome for social icons -->
@@ -14,40 +15,6 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
-  <style>
-    /* Search bar styling */
-    .search-container {
-      display: flex;
-      justify-content: center;
-      margin: 1rem 0;
-      position: relative;
-    }
-
-    .search-container input[type="text"] {
-      padding: 0.5rem 2.5rem 0.5rem 1rem;
-      width: 300px;
-      font-size: 1rem;
-      border-radius: 25px;
-      border: 1px solid #ccc;
-      outline: none;
-    }
-
-    .search-container button {
-      position: absolute;
-      right: 5px;
-      top: 50%;
-      transform: translateY(-50%);
-      border: none;
-      background: none;
-      cursor: pointer;
-      font-size: 1.2rem;
-      color: #333;
-    }
-
-    .search-container button:hover {
-      color: #ff6600;
-    }
-  </style>
 </head>
 <body>
   <!-- Header / Navigation -->
@@ -66,12 +33,6 @@
       <span></span>
     </div>
   </header>
-
-  <!-- Search Bar -->
-  <div class="search-container">
-    <input type="text" id="searchInput" placeholder="Search your favorite..." />
-    <button id="searchBtn" aria-label="Search"><i class="fas fa-search"></i></button>
-  </div>
 
   <!-- Main Content -->
   <main>
@@ -200,56 +161,14 @@
       const now = new Date();
       const date = now.toLocaleDateString();
       const time = now.toLocaleTimeString();
-      const year = now.getFullYear();
+      const year = now.getFullYear(); // Dynamically fetch current year
       const footerText = `© ${year} Anna Best Bakes | ${date} ${time}`;
       document.getElementById('footerText').textContent = footerText;
     }
 
+    // Update footer 
     updateFooter();
     setInterval(updateFooter, 1000);
-
-    //  Smart Search Functionality 
-    const searchInput = document.getElementById('searchInput');
-    const searchBtn = document.getElementById('searchBtn');
-
-    // Define searchable pages
-    const searchPages = {
-      "home": "../index.html",
-      "contact": "contact.html",
-      "about": "about.html",
-      "products": "products.html",
-      "enquiry": "enquiry.html",
-      "chocolate cake": "products.html#chocolate-cake",
-      "lemon bars": "products.html#lemon-bars"
-    };
-
-    function performSearch() {
-      const query = searchInput.value.trim().toLowerCase();
-      if (!query) return;
-
-      // Find page
-      let found = false;
-      for (const key in searchPages) {
-        if (query.includes(key)) {
-          window.location.href = searchPages[key];
-          found = true;
-          break;
-        }
-      }
-
-      if (!found) {
-        alert("Sorry, no page found for: " + query);
-      }
-    }
-
-    searchBtn.addEventListener('click', performSearch);
-
-    searchInput.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        performSearch();
-      }
-    });
   </script>
 </body>
 </html>
