@@ -27,11 +27,4 @@ v1.1.0 –  Update (2025-09-26)
     Added slide down toggles on about us
     Added gallerylightbox on the products page
 
-    Update(2025-11-17)
-    Added search icon bar on home page
-    Added search icon bar on products page
-    Added search icon bar on enquiry page
-    Added search icon bar on contact page
-    Added search icon bar on about page
-    
-    
+   
