@@ -14,7 +14,7 @@
   <header>
     <!-- Logo -->
     <img
-      src="../ANNA-BEST-BAKES/assets/Anna logo 2.jpg"
+      src="/ANNA-BEST-BAKES/assets/Anna logo 2.jpg"
       alt="Anna best bakes logo"
       width="150"
       height="100"
@@ -28,9 +28,6 @@
       <a href="pages/products.html">Products</a>
       <a href="pages/enquiry.html">Enquiry</a>
     </nav>
-
-    <!-- 🔵 Placeholder for JS search -->
-    <div id="search-placeholder"></div>
 
     <!-- Hamburger icon -->
     <div
@@ -93,11 +90,11 @@
       ></a>
     </div>
     <p>&copy; 2025 ANNA BEST BAKES</p>
+    <!-- Automatic Date and Time -->
     <p id="datetime-footer" class="footer-datetime"></p>
   </footer>
 
   <script>
-    // Hamburger 
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('nav.nav-links');
 
@@ -107,6 +104,8 @@
     }
 
     hamburger.addEventListener('click', toggleMenu);
+
+    // Keyboard accessibility
     hamburger.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -114,7 +113,7 @@
       }
     });
 
-    // FOOTER DATE & TIME 
+    // Automatic Date and Time in Footer
     function updateFooterDateTime() {
       const now = new Date();
       const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -122,14 +121,19 @@
       const timeString = now.toLocaleTimeString();
       document.getElementById('datetime-footer').textContent = `${dateString} | ${timeString}`;
     }
+
     setInterval(updateFooterDateTime, 1000);
     updateFooterDateTime();
 
-    //ACCORDION
+    //  Accordion 
     document.addEventListener('DOMContentLoaded', () => {
       const paragraphs = document.querySelectorAll('.accordion-content');
+
       paragraphs.forEach(p => {
+        
         p.style.display = 'none';
+        
+       
         const heading = p.previousElementSibling;
         if (heading && (heading.tagName === 'H1' || heading.tagName === 'H2')) {
           heading.style.cursor = 'pointer';
@@ -140,7 +144,7 @@
       });
     });
 
-    // LIGHTBOX FOR PRODUCT IMAGE 
+    //Simple Lightbox for Product Image 
     const productImage = document.getElementById('product-image');
     productImage.addEventListener('click', () => {
       const overlay = document.createElement('div');
@@ -161,143 +165,8 @@
       img.style.maxWidth = '90%';
       img.style.maxHeight = '90%';
       overlay.appendChild(img);
+
       document.body.appendChild(overlay);
-    });
-
-    // SMART SEARCH BAR 
-    const searchContainer = document.getElementById("search-placeholder");
-
-    const searchBarIcon = document.createElement("div");
-    searchBarIcon.style.width = "200px";
-    searchBarIcon.style.height = "40px";
-    searchBarIcon.style.border = "2px solid #333";
-    searchBarIcon.style.borderRadius = "20px";
-    searchBarIcon.style.display = "flex";
-    searchBarIcon.style.alignItems = "center";
-    searchBarIcon.style.justifyContent = "center";
-    searchBarIcon.style.cursor = "pointer";
-    searchBarIcon.style.marginLeft = "20px";
-    searchBarIcon.style.backgroundColor = "#f0f0f0";
-    searchBarIcon.style.fontSize = "14px";
-    searchBarIcon.style.color = "#333";
-    searchBarIcon.style.padding = "0 10px";
-    searchBarIcon.innerHTML = '<i class="fas fa-search" style="margin-right:8px;"></i> Search your favorite';
-
-    searchBarIcon.addEventListener("mouseover", () => searchBarIcon.style.backgroundColor = "#e0e0e0");
-    searchBarIcon.addEventListener("mouseout", () => searchBarIcon.style.backgroundColor = "#f0f0f0");
-
-    searchContainer.appendChild(searchBarIcon);
-
-    const searchBox = document.createElement("input");
-    searchBox.type = "text";
-    searchBox.placeholder = "Type to search...";
-    searchBox.style.position = "absolute";
-    searchBox.style.top = "100px";
-    searchBox.style.right = "20px";
-    searchBox.style.padding = "12px";
-    searchBox.style.fontSize = "16px";
-    searchBox.style.border = "2px solid #333";
-    searchBox.style.borderRadius = "5px";
-    searchBox.style.display = "none";
-    searchBox.style.zIndex = "999";
-    searchBox.style.width = "250px";
-    document.body.appendChild(searchBox);
-
-    const suggestionBox = document.createElement("div");
-    suggestionBox.style.position = "absolute";
-    suggestionBox.style.top = "140px";
-    suggestionBox.style.right = "20px";
-    suggestionBox.style.backgroundColor = "#fff";
-    suggestionBox.style.border = "1px solid #333";
-    suggestionBox.style.borderRadius = "5px";
-    suggestionBox.style.width = "250px";
-    suggestionBox.style.maxHeight = "200px";
-    suggestionBox.style.overflowY = "auto";
-    suggestionBox.style.display = "none";
-    suggestionBox.style.zIndex = "1000";
-    document.body.appendChild(suggestionBox);
-
-    const searchRoutes = {
-      "home": "../index.html",
-      "homepage": "../index.html",
-      "contact": "pages/contact.html",
-      "contact us": "pages/contact.html",
-      "support": "pages/contact.html",
-      "about": "pages/about.html",
-      "about us": "pages/about.html",
-      "product": "pages/products.html",
-      "products": "pages/products.html",
-      "cakes": "pages/products.html",
-      "bakes": "pages/products.html",
-      "enquiry": "pages/enquiry.html",
-      "inquiry": "pages/enquiry.html"
-    };
-
-    function toggleSearch() {
-      if (searchBox.style.display === "none") {
-        searchBox.style.display = "block";
-        searchBox.focus();
-      } else {
-        searchBox.style.display = "none";
-        searchBox.value = "";
-        suggestionBox.style.display = "none";
-      }
-    }
-
-    searchBarIcon.addEventListener("click", toggleSearch);
-    searchBarIcon.tabIndex = 0;
-    searchBarIcon.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        toggleSearch();
-      }
-    });
-
-    searchBox.addEventListener("input", function () {
-      const query = searchBox.value.toLowerCase().trim();
-      suggestionBox.innerHTML = "";
-      if (query === "") {
-        suggestionBox.style.display = "none";
-        return;
-      }
-      const matches = Object.keys(searchRoutes).filter(key => key.includes(query));
-      if (matches.length === 0) {
-        suggestionBox.innerHTML = '<div style="padding:10px;color:#555;">No results found</div>';
-      } else {
-        matches.forEach(match => {
-          const div = document.createElement("div");
-          div.textContent = match;
-          div.style.padding = "10px";
-          div.style.cursor = "pointer";
-          div.addEventListener("mouseover", () => div.style.backgroundColor = "#f0f0f0");
-          div.addEventListener("mouseout", () => div.style.backgroundColor = "#fff");
-          div.addEventListener("click", () => {
-            window.location.href = searchRoutes[match];
-          });
-          suggestionBox.appendChild(div);
-        });
-      }
-      suggestionBox.style.display = "block";
-    });
-
-    searchBox.addEventListener("keydown", function(e) {
-      if (e.key === "Enter") {
-        const query = searchBox.value.toLowerCase().trim();
-        const match = Object.keys(searchRoutes).find(key => key.includes(query));
-        if (match) {
-          window.location.href = searchRoutes[match];
-        } else {
-          alert("No matching page found. Try: home, products, contact, about, enquiry.");
-        }
-      }
-    });
-
-    document.addEventListener("click", function(e) {
-      if (!searchBox.contains(e.target) && !searchBarIcon.contains(e.target) && !suggestionBox.contains(e.target)) {
-        searchBox.style.display = "none";
-        suggestionBox.style.display = "none";
-        searchBox.value = "";
-      }
     });
   </script>
 </body>
