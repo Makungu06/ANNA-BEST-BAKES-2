@@ -31,6 +31,13 @@
       <a href="products.html">Products</a>
       <a href="enquiry.html">Enquiry</a>
     </nav>
+
+    <!-- Smart Search Bar -->
+    <div id="smartSearchContainer">
+      <input type="text" id="smartSearchInput" placeholder="Search your favorite..." />
+      <button id="smartSearchBtn"><i class="fas fa-search"></i></button>
+      <p id="searchDescription">Search your favorite</p>
+    </div>
   </header>
 
   <main>
@@ -182,6 +189,38 @@
 
       setInterval(updateDateTime, 1000);
       updateDateTime();
+
+      // Smart Search Functionality
+      const smartSearchInput = document.getElementById("smartSearchInput");
+      const smartSearchBtn = document.getElementById("smartSearchBtn");
+
+      // Map search terms to pages
+      const searchMap = {
+        "home": "../index.html",
+        "contact": "contact.html",
+        "about": "about.html",
+        "products": "products.html",
+        "enquiry": "enquiry.html",
+        "cake": "products.html#cake",
+        "chocolate": "products.html#chocolate",
+        "lemon": "products.html#lemon"
+      };
+
+      function performSearch() {
+        const query = smartSearchInput.value.trim().toLowerCase();
+        if (searchMap[query]) {
+          window.location.href = searchMap[query];
+        } else {
+          alert("❌ Page not found for: " + query);
+        }
+      }
+
+      smartSearchBtn.addEventListener("click", performSearch);
+      smartSearchInput.addEventListener("keydown", function(e) {
+        if (e.key === "Enter") {
+          performSearch();
+        }
+      });
     });
   </script>
 </body>
