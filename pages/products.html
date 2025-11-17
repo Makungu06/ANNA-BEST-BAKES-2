@@ -102,12 +102,10 @@
       // Hamburger Menu
       const hamburger = document.querySelector(".hamburger");
       const nav = document.querySelector("nav");
-
       hamburger.addEventListener("click", () => {
         nav.classList.toggle("active");
         hamburger.classList.toggle("active");
       });
-
       hamburger.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
@@ -118,52 +116,38 @@
       // Contact Form
       const contactForm = document.getElementById("contactForm");
       const formMessage = document.getElementById("formMessage");
-
       function isValidEmail(email) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
       }
-
       contactForm.addEventListener("submit", async function(e) {
         e.preventDefault();
-
         const name = document.getElementById("name").value.trim();
         const email = document.getElementById("email").value.trim();
         const message = document.getElementById("message").value.trim();
-
         if (!name || !email || !message) {
           formMessage.style.color = "red";
           formMessage.textContent = "⚠️ Please fill in all fields!";
           return;
         }
-
         if (!isValidEmail(email)) {
           formMessage.style.color = "red";
           formMessage.textContent = "⚠️ Please enter a valid email address!";
           return;
         }
-
         try {
-          // Formspree POST request
           const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "Accept": "application/json",
-            },
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
             body: JSON.stringify({ name, email, message }),
           });
-
           if (response.ok) {
             const now = new Date();
             const dateString = now.toLocaleDateString();
             const timeString = now.toLocaleTimeString();
-
             formMessage.style.color = "green";
             formMessage.textContent = `📩 Thank you, ${name}! Your message has been sent successfully on ${dateString} at ${timeString}.`;
             contactForm.reset();
-          } else {
-            throw new Error("Network response was not ok");
-          }
+          } else throw new Error("Network response was not ok");
         } catch (error) {
           formMessage.style.color = "red";
           formMessage.textContent = "❌ Sorry, there was an error sending your message. Please try again later.";
@@ -179,9 +163,126 @@
         const timeString = now.toLocaleTimeString();
         document.getElementById("currentDateTime").textContent = `${dateString} | ${timeString}`;
       }
-
       setInterval(updateDateTime, 1000);
       updateDateTime();
+
+      // ===================== SMART SEARCH BAR =====================
+      const header = document.querySelector("header");
+
+      // Create search icon bar
+      const searchIconBar = document.createElement("div");
+      searchIconBar.style.display = "flex";
+      searchIconBar.style.alignItems = "center";
+      searchIconBar.style.cursor = "pointer";
+      searchIconBar.style.marginLeft = "20px";
+      searchIconBar.innerHTML = `<i class="fas fa-search" style="margin-right:8px;"></i> Search your favorite`;
+      header.appendChild(searchIconBar);
+
+      // Create input box
+      const searchInput = document.createElement("input");
+      searchInput.type = "text";
+      searchInput.placeholder = "Type to search...";
+      searchInput.style.position = "absolute";
+      searchInput.style.top = "80px";
+      searchInput.style.right = "20px";
+      searchInput.style.padding = "10px";
+      searchInput.style.fontSize = "16px";
+      searchInput.style.border = "2px solid #333";
+      searchInput.style.borderRadius = "5px";
+      searchInput.style.display = "none";
+      searchInput.style.zIndex = "999";
+      searchInput.style.width = "250px";
+      document.body.appendChild(searchInput);
+
+      // Suggestion box
+      const suggestionBox = document.createElement("div");
+      suggestionBox.style.position = "absolute";
+      suggestionBox.style.top = "120px";
+      suggestionBox.style.right = "20px";
+      suggestionBox.style.backgroundColor = "#fff";
+      suggestionBox.style.border = "1px solid #333";
+      suggestionBox.style.borderRadius = "5px";
+      suggestionBox.style.width = "250px";
+      suggestionBox.style.maxHeight = "200px";
+      suggestionBox.style.overflowY = "auto";
+      suggestionBox.style.display = "none";
+      suggestionBox.style.zIndex = "1000";
+      document.body.appendChild(suggestionBox);
+
+      // Search routes
+      const searchRoutes = {
+        "home": "../index.html",
+        "homepage": "../index.html",
+        "contact": "contact.html",
+        "contact us": "contact.html",
+        "support": "contact.html",
+        "about": "about.html",
+        "about us": "about.html",
+        "product": "products.html",
+        "products": "products.html",
+        "cakes": "products.html",
+        "bakes": "products.html",
+        "enquiry": "enquiry.html",
+        "inquiry": "enquiry.html"
+      };
+
+      // Toggle input box
+      function toggleSearch() {
+        if (searchInput.style.display === "none") {
+          searchInput.style.display = "block";
+          searchInput.focus();
+        } else {
+          searchInput.style.display = "none";
+          searchInput.value = "";
+          suggestionBox.style.display = "none";
+        }
+      }
+      searchIconBar.addEventListener("click", toggleSearch);
+
+      searchInput.addEventListener("input", function() {
+        const query = searchInput.value.toLowerCase().trim();
+        suggestionBox.innerHTML = "";
+        if (!query) {
+          suggestionBox.style.display = "none";
+          return;
+        }
+        const matches = Object.keys(searchRoutes).filter(key => key.includes(query));
+        if (matches.length === 0) {
+          suggestionBox.innerHTML = '<div style="padding:10px;color:#555;">No results found</div>';
+        } else {
+          matches.forEach(match => {
+            const div = document.createElement("div");
+            div.textContent = match;
+            div.style.padding = "10px";
+            div.style.cursor = "pointer";
+            div.addEventListener("mouseover", () => div.style.backgroundColor = "#f0f0f0");
+            div.addEventListener("mouseout", () => div.style.backgroundColor = "#fff");
+            div.addEventListener("click", () => window.location.href = searchRoutes[match]);
+            suggestionBox.appendChild(div);
+          });
+        }
+        suggestionBox.style.display = "block";
+      });
+
+      searchInput.addEventListener("keydown", function(e) {
+        if (e.key === "Enter") {
+          const query = searchInput.value.toLowerCase().trim();
+          const match = Object.keys(searchRoutes).find(key => key.includes(query));
+          if (match) {
+            window.location.href = searchRoutes[match];
+          } else {
+            alert("No matching page found. Try: home, products, contact, about, enquiry.");
+          }
+        }
+      });
+
+      document.addEventListener("click", function(e) {
+        if (!searchInput.contains(e.target) && !searchIconBar.contains(e.target) && !suggestionBox.contains(e.target)) {
+          searchInput.style.display = "none";
+          suggestionBox.style.display = "none";
+          searchInput.value = "";
+        }
+      });
     });
   </script>
 </body>
